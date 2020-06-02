@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
+import User from './User';
 
 import './App.css';
 
 function App() {
+  console.log("---")
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -17,13 +19,16 @@ function App() {
         data: payload,
       });
       const { data } = result.data;
+      console.log("+++++")
       setUsers(data);
     }
-    fetchData();
+    console.log("***")
+    //fetchData();
   }, []);
   return (
     <div className="App">
       <header className="App-header">
+        <User />
         <ul>
           {users.map((v, i) => (
             <li key={v.id}>{v.employee_name}</li>
