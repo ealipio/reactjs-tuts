@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+
+import axios from 'axios';
+
 import './App.css';
 
 function App() {
@@ -7,8 +10,13 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       const url = 'http://dummy.restapiexample.com/api/v1/employees';
-      const result = await fetch(url);
-      const { data } = await result.json();
+      const payload = { token: 'dsdvsdvdsv', data: { name: 'eisson' } };
+      const result = await axios({
+        method: 'get',
+        url,
+        data: payload,
+      });
+      const { data } = result.data;
       setUsers(data);
     }
     fetchData();
