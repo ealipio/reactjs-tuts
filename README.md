@@ -1,2 +1,2 @@
-## using useEffect 
-All chapters will be in different branches
+* Using lazy and suspense
+* including how to use context API
